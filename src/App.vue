@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <div class="my-2">
+      <router-link to="/signin"
+        ><v-btn color="warning" dark>
+          SignIn
+        </v-btn></router-link
+      >
+    </div>
+    <div class="my-2">
+      <router-link to="/signup"
+        ><v-btn color="warning" dark>
+          SignUp
+        </v-btn></router-link
+      >
+    </div>
+    <!-- <transition
+      name="router-anim"
+      enter-active-class="animate__animated animate__fadeInLeft"
+      leave-active-class="animate__animated animate__fadeOutLeft"
+    >
+      <router-view />
+    </transition> -->
+
+    <router-view />
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style>
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"; */
+
+html,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
 }
 </style>
