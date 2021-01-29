@@ -5,7 +5,7 @@ const router = express.Router();
 const Customers = require("../models/customerModel.js");
 
 // get all customers
-router.get("/", function(req, res) {
+router.get("/", function (req, res) {
   Customers.find({})
     .then((data) => {
       // console.log('data:', data);
@@ -28,13 +28,6 @@ router.post("/save", async (req, res) => {
     } else {
       res.json({ msg: "Your data saved Successfully" });
     }
-  });
-});
-
-router.post("/delete", function(req, res) {
-  const dataID = req.body;
-  VendorList.findOneAndDelete({ id: dataID.delValue }, (err) => {
-    err ? console.log(err) : console.log("Deleted successfully");
   });
 });
 

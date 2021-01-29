@@ -5,7 +5,7 @@
         <v-toolbar-title>Customers</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
-        <v-dialog v-model="dialog" max-width="500px">
+        <v-dialog v-model="dialog" dark max-width="1000px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
               New customer
@@ -83,8 +83,7 @@
         </v-dialog>
       </v-toolbar>
     </template>
-    <!--  v-slot:item.actions="{ item }" -->
-    <template v-slot:item.actions="{ item }">
+    <template v-slot:[`item.actions`]="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)">
         mdi-pencil
       </v-icon>
@@ -224,4 +223,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+@import "~vuetify/src/components/VStepper/_variables.scss";
+</style>

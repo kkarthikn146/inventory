@@ -1,26 +1,34 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const morgan = require("morgan");
 const path = require("path");
 const cors = require("cors");
+const dotenv = require("dotenv");
+const colors = require("colors");
+
+// colors.setTheme({
+//   custom: ['red', 'underline']
+// });
+
+//  ES6 Module
+// "type" : "module", // in package.json
+// import dotenv from "dotenv";
+
+//routes
 const customerRoute = require("./routes/customersRoute.js");
+const userRoute = require("./routes/postgresRoutes/userRoutes");
+
+//dbConfigs
+const mongoDB = require("../Backend/dbConfig/mongoDB");
+// const postgresDB = require("../Backend/dbConfig/postgresDB");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-mongoose.set("useFindAndModify", false);
+//dotenv config
+dotenv.config();
 
-mongoose.connect(
-  "mongodb+srv://admin-karthik146:kkn@1406@cluster0.pmlzy.mongodb.net/inventory?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
-
-mongoose.connection.on("connected", () => {
-  console.log("Mongoose is connected..");
-});
+mongoDB();
+// postgresDB();
 
 app.get("/", (req, res) => {
   res.json({
@@ -34,6 +42,7 @@ app.use(cors());
 
 app.use(morgan("tiny"));
 
+app.use("/api/users", userRoute);
 app.use("/api/customers", customerRoute);
 
-app.listen(PORT, console.log(`Server running on ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT}`.cyan.bgBlack));

@@ -1,0 +1,90 @@
+ {
+          name: "radio",
+          label: "Select Your gender",
+          placeholder: "radio",
+          id: "radio",
+          model: "radio",
+          items: [
+            {
+              value: "Male",
+              color: "success",
+              label: "Male",
+            },
+            {
+              value: "Female",
+              color: "warning",
+              label: "Female",
+            },
+          ],
+          type: "radio",
+          isRequired: true,
+        },
+        {
+          isMultiple: true,
+          items: [
+            "c",
+            "c++",
+            "java",
+            "javascript",
+            "html",
+            "css",
+            "bootstrap",
+            "NodeJS",
+            "ReactJS",
+            "VueJS",
+            "ExpressJS",
+            "MongoDB",
+            "mongoose",
+            "JQuery",
+          ],
+          name: "select",
+          label: "select",
+          isChips: true,
+          hint: "Select your skills",
+          placeholder: "select",
+          id: "select",
+          model: "select",
+          type: "select",
+          isRequired: true,
+        },
+
+      // let obj = {};
+      // for (let el in this.form.modelName) {
+      //   obj[el] = this.form.modelName.el;
+      // }
+      // console.log(obj);
+
+
+
+computed: {
+  form: {
+    get () {
+      return this.$store.state.obj.message
+    },
+    set (value) {
+      this.$store.commit('updateMessage', value)
+    }
+  }
+}
+
+let isValid = this.makeValidations(datas);
+      if (isValid) {
+        console.log("success");
+      } else {
+        console.log("fail");
+      }
+      //this.assignFormValuesToState(datas);
+    },
+    makeValidations(datas) {
+      for (let index in datas) {
+        if (index === "email") {
+          var mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+          if (datas[index].match(mailformat)) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+    },
+      

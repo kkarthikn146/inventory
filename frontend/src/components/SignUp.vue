@@ -1,14 +1,14 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex md12 class="text-md-center" mt-5>
-        <h1 class="heading">Sign In</h1>
+      <v-flex xs12 class="text-md-center" mt-5>
+        <h1>Sign Up</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
         <form>
           <v-layout column>
             <v-flex>
-              <FormInput :formDatas="formDatas" place="signIn" />
+              <FormInput :formDatas="formDatas" place="signUp" />
             </v-flex>
           </v-layout>
         </form>
@@ -21,10 +21,6 @@
 import FormInput from "./FormInput";
 
 export default {
-  name: "SignIn",
-  components: {
-    FormInput,
-  },
   data() {
     return {
       formDatas: [
@@ -98,11 +94,9 @@ export default {
       ],
     };
   },
+  name: "SignUp",
+  components: {
+    FormInput,
+  },
 };
 </script>
-
-<style scoped>
-.heading {
-  color: rgb(25, 118, 210);
-}
-</style>

@@ -1,19 +1,22 @@
 <template>
   <v-app>
-    <div class="my-2">
+    <!-- <div class="row">
+
+    <div class="col-md-6 my-2">
       <router-link to="/signin"
         ><v-btn color="warning" dark>
           SignIn
         </v-btn></router-link
       >
     </div>
-    <div class="my-2">
+    <div class="col-md-6 my-2">
       <router-link to="/signup"
-        ><v-btn color="warning" dark>
+        ><v-btn color="info" dark>
           SignUp
         </v-btn></router-link
       >
     </div>
+  </div> -->
     <!-- <transition
       name="router-anim"
       enter-active-class="animate__animated animate__fadeInLeft"

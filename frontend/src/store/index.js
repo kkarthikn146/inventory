@@ -1,5 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
+
+import { getField, updateField } from "vuex-map-fields";
+
+/* --------------------------------- modules -------------------------------- */
 import followerModule from "./modules/followerModule";
 import tweetsModule from "./modules/tweetsModule";
 import customerModule from "./modules/customerModule";
@@ -14,8 +18,19 @@ const store = new Vuex.Store({
     customerModule,
     inputValues,
   },
-  state: {},
-  mutations: {},
+
+  /* -------------------- two way binding (v-model) to store ------------------- */
+  state: {
+    basicForm: {},
+    user: {},
+    addresses: [{}],
+  },
+  getters: {
+    getField,
+  },
+  mutations: {
+    updateField,
+  },
 });
 
 export default store;
